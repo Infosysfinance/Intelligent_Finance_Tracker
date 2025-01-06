@@ -37,7 +37,7 @@ Clone the Repository
 
 bash
 Copy code
-git clone https://github.com/your-username/expense-tracker.git
+git clone https://github.com/Infosysfinance/Intelligent_Finance_Tracker
 cd expense-tracker
 Set Up Virtual Environment
 
