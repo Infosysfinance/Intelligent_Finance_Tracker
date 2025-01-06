@@ -14,7 +14,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            background: linear-gradient(to right,rgb(185, 220, 229),rgb(152, 209, 255));
             color: #333;
         }
 
@@ -165,7 +165,7 @@
 
         .alert {
             background-color: #f8d7da;
-            color: #721c24;
+            color:rgb(201, 19, 38);
             padding: 10px;
             border-radius: 5px;
             margin-top: 20px;
@@ -200,12 +200,29 @@
             height: 100%;
             background: #28a745;
         }
+        #downloadPdfBtn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            color: white;
+            border: 2px solid white;
+            background-color: blue;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #downloadPdfBtn:hover {
+            background-color: blue;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
-    <h2>Welcome to your Dashboard, {{ user.username }}!</h2>
-    <a href="{% url 'logout.html' %}" class="btn btn-primary" style="background-color: blue; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; align:right">Log out</a>
+    <h2 style="top:40px; ">Welcome to your Dashboard, {{ user.username }}!</h2>
+    <div style="top:0px; margin: 0; padding: 0; display: flex; justify-content: right; align-items: right; ">
+       
+        <a href="{% url 'logout.html' %}" class="btn btn-primary" style="background-color: blue; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; align:right">Log out</a>
+    </div>
     <div class="container">
         
         <h1>💰 Intelligent Finance Tracker</h1>
@@ -309,8 +326,11 @@
         </div>
        
     </div>
+    <div style="margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; ">
+        
+    <button id="downloadPdfBtn" style="font-size: 1.2rem; padding: 10px 20px; color: white; border: 2px solid blue; background-color: blue; border-radius: 8px; cursor: pointer;">Download PDF</button>
+</div>
 
-    <button id="downloadPdfBtn" style:"justify-content:space-between,align-items:center color:blue">Download PDF</button>
     <script>
         const tabs = document.querySelectorAll(".tab-link");
         const tabContents = document.querySelectorAll(".tab-content");
@@ -439,8 +459,10 @@
 
             if(progressPercentage >= 100) {
                 savingsStatus.textContent = "Savings Goal Achieved!";
+                savingsStatus.style.color = "green"
             } else {
                 savingsStatus.textContent = `You need ₹${savingsGoal - savingsProgress} more to reach your savings goal.`;
+               savingsStatus.style.color = "red"
             }
 
             progressBar.style.width = progressPercentage + "%";
