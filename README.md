@@ -1,5 +1,5 @@
 
-# Expense Tracker Web Application
+# Intelligent Financial Planning Hub
 
 A **Django-based Expense Tracker** that allows users to securely manage their daily expenses. Users can register, log in, add expenses, and view transaction history. All transactions are securely stored in a MySQL database.
 
